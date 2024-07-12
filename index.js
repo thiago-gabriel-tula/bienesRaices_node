@@ -60,8 +60,8 @@ app.use('/api', apiRoutes);
 // Definir un puerto y arrancar el proyecto
 const port = process.env.PORT || 3000;
 
-// app.listen(port, ()=>{
-//     console.log(`El servidor está conectada en el pueto ${port}`);
-// });
+app.listen(port, ()=>{
+    console.log(`El servidor está conectada en http://localhost:${port}`);
+});
 
 export default app;
