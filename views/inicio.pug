@@ -1,0 +1,45 @@
+extends ./layout/app.pug 
+
+block styles
+    link(rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css")
+
+block contenido
+    div(class="py-5 ")
+        h1(class="text-center text-4xl font-extrabold") Ubicación en el mapa 
+        
+        div(class="flex flex-col md:flex-row items-center py-10 gap-4")
+            h2(class="text-sm uppercase text-gray-800 font-bold") Filtrar Propiedades:
+
+            div(class="w-full md:w-auto flex items-center gap-2")
+                label(for="categorias" class="text-sm w-24 uppercase text-gray-500 font-bold") Categorias
+                select(name="categorias" id="categorias" class="bg-white flex-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow") 
+                    option(value="") - Seleccione - 
+                    each categoria in categorias 
+                        option(value=categoria.id)= categoria.nombre
+            
+            div(class="w-full md:w-auto flex items-center gap-2")
+                label(for="precios" class="text-sm w-24 uppercase text-gray-500 font-bold") Precios
+                select(name="precios" id="precios" class="bg-white flex-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow") 
+                    option(value="") - Seleccione - 
+                    each precio in precios 
+                        option(value=precio.id)= precio.nombre
+
+        div(id="mapa-inicio" class="h-[600px] mt-5")
+
+        section(class="py-5")
+            h2(class="text-center text-4xl font-extrabold pt-10") Casas en Venta Recientemente
+            
+            div(class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5")
+                each propiedad in casas 
+                    include ./templates/card.pug
+
+        section(class="py-5")
+            h2(class="text-center text-4xl font-extrabold pt-10") Departamentos en Venta Recientemente
+            
+            div(class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5")
+                each propiedad in departamentos 
+                    include ./templates/card.pug
+block scripts 
+    script(src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js")
+    script(src="/js/mapaInicio.js")
+    
