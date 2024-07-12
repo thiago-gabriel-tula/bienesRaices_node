@@ -25,8 +25,8 @@ const admin = async (req, res)=>{
 
         const [propiedades, total] = await Promise.all([
             Propiedad.findAll({
-                limit, // limit es el limite de datos que puede darnos
-                offset, //offset es para decirle a partir de donde empieza a pasar los datos
+                limit: Number(limit), // limit es el limite de datos que puede darnos
+                offset: Number(offset), //offset es para decirle a partir de donde empieza a pasar los datos
                 where: {
                     usuarioId: id
                 }, 
