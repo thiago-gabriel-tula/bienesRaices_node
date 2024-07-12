@@ -12,7 +12,7 @@
     "dev": "concurrently \"npm run css\" \"npm run js\"",
     "db:importar": "node ./seed/seeder.js -i",
     "db:eliminar": "node ./seed/seeder.js -e",
-    "build": "npm install"
+    "build": "echo 'No build step required'"
   },
   "keywords": [
     "MVC",
