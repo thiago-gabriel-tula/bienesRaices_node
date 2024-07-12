@@ -14,7 +14,7 @@ const db = new Sequelize(process.env.BD_NOMBRE, process.env.BD_USER, process.env
         timestamp: true // Aquí se definen algunas configuraciones predeterminadas para los modelos de Sequelize. La opción timestamp: true significa que Sequelize automáticamente añadirá los campos createdAt y updatedAt a los modelos, para gestionar las marcas de tiempo de creación y actualización de registros.
     },
     pool: { //  Esto ayuda a gestionar múltiples conexiones y puede mejorar el rendimiento
-        max:5, //El número máximo de conexiones que el pool puede mantener al mismo tiempo
+        max:15, //El número máximo de conexiones que el pool puede mantener al mismo tiempo
         min:0, //  Aquí, puede tener 0 conexiones mínimas, es decir, no mantendrá conexiones abiertas innecesariamente.
         adquire:30000, //: El tiempo máximo, en milisegundos, que el pool tratará de establecer una conexión antes de lanzar un error
         idle: 10000 //El tiempo máximo, en milisegundos, que una conexión puede estar inactiva antes de ser liberada. 
